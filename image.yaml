@@ -1,0 +1,18 @@
+apiVersion: kpack.io/v1alpha1
+kind: Image
+metadata:
+  name: made-war
+  namespace: builds
+spec:
+  tag: registry.planet10.lab/apps/made-war
+  build:
+    resources: {}
+  builder:
+    kind: ClusterBuilder
+    name: base
+  serviceAccount: kpack-sa
+  source:
+    git:
+      url: https://github.com/sdeeg/made-war.git
+      revision: main
+status: {}
